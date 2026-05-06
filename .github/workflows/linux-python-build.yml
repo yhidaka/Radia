@@ -5,3 +5,9 @@ name: Linux Python build (manual only)
 on:
   workflow_dispatch:
 
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Superseded by windows-python-build.yml (Linux + macOS source build)"
+
