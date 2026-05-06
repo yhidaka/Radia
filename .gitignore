@@ -1,2 +1,6 @@
-*.pyd
+.vscode/
+
+__pycache__/
+
+cpp/py/*.pyd
 *.egg-info/

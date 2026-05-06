@@ -8,6 +8,8 @@ python = ">=3.10"
 pip = "*"
 setuptools = "*"
 wheel = "*"
+numpy = ">=2.4.3,<3"
+matplotlib = ">=3.10.9,<4"
 
 [pypi-dependencies]
 radia = { path = "cpp/py", editable = true }
