@@ -28,7 +28,7 @@ jobs:
 
       - name: Install system dependencies (Linux)
         if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y libopenmpi-dev
+        run: sudo apt-get update && sudo apt-get install -y libfftw3-dev
 
       - name: Install system dependencies (macOS)
         if: runner.os == 'macOS'
@@ -40,6 +40,7 @@ jobs:
       - name: Build and install Radia extension (source build)
         env:
           RADIA_BUILD_FROM_SOURCE: "1"
+          RADIA_USE_SYSTEM_FFTW: "1"
         run: pip install --no-build-isolation -e cpp/py
 
       - name: Smoke-test Radia import

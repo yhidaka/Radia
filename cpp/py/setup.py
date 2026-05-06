@@ -160,10 +160,10 @@ def build_from_source_extension():
             if platform.machine().lower() in {"amd64", "x86_64"}
             else "libfftw_f_i686.a"
         )
-        if fftw_archive.exists():
+        if fftw_archive.exists() and not env_flag("RADIA_USE_SYSTEM_FFTW"):
             extra_objects.append(str(fftw_archive))
         else:
-            libraries.append("fftw")
+            libraries.append("fftw3f")
         libraries.extend(["m"])
         extra_compile_args.extend(["-O3", "-Wno-c++11-narrowing"])
 
