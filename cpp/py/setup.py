@@ -165,7 +165,7 @@ def build_from_source_extension():
         else:
             libraries.append("fftw")
         libraries.extend(["m"])
-        extra_compile_args.extend(["-O3"])
+        extra_compile_args.extend(["-O3", "-Wno-c++11-narrowing"])
 
     with_glut = ("_WITH_GLUT", None) in define_macros
     return Extension(

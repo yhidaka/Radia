@@ -39,6 +39,12 @@ jobs:
           print('Field calculation OK:', B)
           "
 
+      - name: Remove shadowing legacy binaries from env/radia_python
+        shell: pwsh
+        run: |
+          Get-ChildItem env/radia_python -Filter "radia.pyd" | Rename-Item -NewName { $_.Name + ".bak" }
+          Get-ChildItem env/radia_python -Filter "radia.so"  | Rename-Item -NewName { $_.Name + ".bak" }
+
       - name: Run RADIA_Example01
         working-directory: env/radia_python
         env:
