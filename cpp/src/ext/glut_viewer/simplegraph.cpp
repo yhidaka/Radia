@@ -67,7 +67,7 @@ const int CWinCont::sm_SAVE = 51;
 //	if(TransSize < zDim) TransSize = zDim;
 //
 //	double LocGrid;
-//    switch(value) 
+//    switch(value)
 //    {
 //        case SMALL : LocGrid = 2*TransSize/4; break;
 //        case MEDIUM: LocGrid = 2*TransSize/2; break;
@@ -96,26 +96,26 @@ const int CWinCont::sm_SAVE = 51;
 //			CWinCont *pc = hCurCont.rep;
 //
 //    pc->m_DisplayMode = value;
-//    switch(value) 
+//    switch(value)
 //    {
-//        case WIREFRAME   : 
-//            glShadeModel(GL_FLAT); 
+//        case WIREFRAME   :
+//            glShadeModel(GL_FLAT);
 //            glDisable(GL_LIGHTING);
 //            break;
-//        case HIDDENLINE: 
-//            glShadeModel(GL_FLAT); 
+//        case HIDDENLINE:
+//            glShadeModel(GL_FLAT);
 //            glDisable(GL_LIGHTING);
 //            break;
-//        case FLATSHADED  : 
-//            glShadeModel(GL_FLAT); 
+//        case FLATSHADED  :
+//            glShadeModel(GL_FLAT);
 //            glEnable(GL_LIGHTING);
 //            break;
-//        case SMOOTHSHADED: 
-//            glShadeModel(GL_SMOOTH); 
+//        case SMOOTHSHADED:
+//            glShadeModel(GL_SMOOTH);
 //            glEnable(GL_LIGHTING);
 //            break;
-//        case TEXTURED: 
-//            glShadeModel(GL_SMOOTH); 
+//        case TEXTURED:
+//            glShadeModel(GL_SMOOTH);
 //            glEnable(GL_LIGHTING);
 //            break;
 //    }
@@ -130,13 +130,13 @@ const int CWinCont::sm_SAVE = 51;
 //
 //    switch (value)
 //    {
-//        case FULLSCREEN: 
+//        case FULLSCREEN:
 //            glutFullScreen();
 //            break;
-//        case FACENORMALS: 
+//        case FACENORMALS:
 //            pc->m_DrawFaceNorms = !pc->m_DrawFaceNorms;
 //            break;
-//        case ANTIALIAS: 
+//        case ANTIALIAS:
 //            pc->m_Antialias = !pc->m_Antialias;
 //            if (pc->m_Antialias)
 //            {
@@ -152,7 +152,7 @@ const int CWinCont::sm_SAVE = 51;
 //                glLineWidth(1.0);
 //            }
 //            break;
-//        case ENVMAP: 
+//        case ENVMAP:
 //            pc->m_EnvMap = !pc->m_EnvMap;
 //            if (pc->m_EnvMap)
 //            {
@@ -195,7 +195,7 @@ const int CWinCont::sm_SAVE = 51;
 //void MyTest_DrawArbPolygObjects(GLenum Mode, double* VertCoord, int Nv, int* VertInd, int* Lengths, float* Colors, int Npg, float* NormCoord, bool& NormalsWereDefined)
 //{
 //	bool ColorsShouldBeTreated = ((Colors != 0) && (Npg > 0));
-//	bool NormalsShouldBeTreated = ((NormCoord != 0) && (Npg > 0));	
+//	bool NormalsShouldBeTreated = ((NormCoord != 0) && (Npg > 0));
 //
 //	float xP1, yP1, zP1, xP2, yP2, zP2, xN, yN, zN;
 //	int *tVertInd = VertInd;
@@ -234,12 +234,12 @@ const int CWinCont::sm_SAVE = 51;
 //
 //			if(!FirstPointDefined)
 //			{
-//				xP1 = xVert; yP1 = yVert; zP1 = zVert; 
+//				xP1 = xVert; yP1 = yVert; zP1 = zVert;
 //				FirstPointDefined = true;
 //			}
 //			else if(!SecondPointDefined)
 //			{
-//				xP2 = xVert; yP2 = yVert; zP2 = zVert; 
+//				xP2 = xVert; yP2 = yVert; zP2 = zVert;
 //				SecondPointDefined = true;
 //
 //				if(AmOfPtInPg == 2)
@@ -287,7 +287,7 @@ const int CWinCont::sm_SAVE = 51;
 //					CurNormalIsDefined = true;
 //					ThirdPointDefined = true;
 //				}
-//				else 
+//				else
 //				{
 //					ThirdPointDefined = true;
 //				}
@@ -318,7 +318,7 @@ const int CWinCont::sm_SAVE = 51;
 //			CSimpleGraph::GetCurHWinCont(hCurCont);
 //			CWinCont *pc = hCurCont.rep;
 //
-//    pc->m_xSize = width; 
+//    pc->m_xSize = width;
 //    pc->m_ySize = height;
 //    pc->m_Aspect = (float)(pc->m_xSize)/(float)(pc->m_ySize);
 //    glViewport(0, 0, pc->m_xSize, pc->m_ySize);
@@ -327,7 +327,7 @@ const int CWinCont::sm_SAVE = 51;
 //    glutPostRedisplay();
 //}
 //
-//void MyTest_display(void) 
+//void MyTest_display(void)
 //{
 //			CHWinCont hCurCont;
 //			CSimpleGraph::GetCurHWinCont(hCurCont);
@@ -339,7 +339,7 @@ const int CWinCont::sm_SAVE = 51;
 //    glLoadIdentity();
 //    gluPerspective(64.0, pc->m_Aspect, pc->m_DepthNear, pc->m_DepthFar);
 //    glMatrixMode(GL_MODELVIEW);
-//    glLoadIdentity(); 
+//    glLoadIdentity();
 //
 //	//improve these movements
 //    glTranslatef(0.0,0.0,-(pc->m_Depth));
@@ -361,13 +361,13 @@ const int CWinCont::sm_SAVE = 51;
 //			CSimpleGraph::GetCurHWinCont(hCurCont);
 //			CWinCont *pc = hCurCont.rep;
 //
-//    switch (ch) 
+//    switch (ch)
 //    {
-//        case '-': 
-//			if(pc->m_Depth < pc->m_DepthFar) pc->m_Depth += pc->m_DepthMotionQuanta; 
+//        case '-':
+//			if(pc->m_Depth < pc->m_DepthFar) pc->m_Depth += pc->m_DepthMotionQuanta;
 //			break;
-//        case '+': 
-//			if(pc->m_Depth > pc->m_DepthNear) pc->m_Depth -= pc->m_DepthMotionQuanta; 
+//        case '+':
+//			if(pc->m_Depth > pc->m_DepthNear) pc->m_Depth -= pc->m_DepthMotionQuanta;
 //			break;
 //        case 27: exit(0); break;
 //        //case 27: { glutDestroyWindow(gActiveWindowID); gActiveWindowID = 0; glutHackStopMainLoop();} break;
@@ -418,16 +418,16 @@ const int CWinCont::sm_SAVE = 51;
 
 //-------------------------------------------------------------------------
 
-//GLfloat MyTest_lightPosition[] = { 0.0, 0.0, 1.0, 1.0}; 
+//GLfloat MyTest_lightPosition[] = { 0.0, 0.0, 1.0, 1.0};
 //
 //int MyTest_StartViewer()
 //{
 //    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 //    glutInitWindowSize(500, 500);
-//    
+//
 //	int CurWindowID = glutCreateWindow("3D Viewer");
 //		if(CurWindowID != 0) CSimpleGraph::sm_WinContMap[CurWindowID] = CSimpleGraph::sm_hFirstWinCont;
-//  
+//
 //    glEnable(GL_DEPTH_TEST);
 //    glDepthFunc(GL_LEQUAL);
 //    glClearColor(1.0, 1.0, 1.0, 0.0);
@@ -440,7 +440,7 @@ const int CWinCont::sm_SAVE = 51;
 //    glColorMaterial(GL_FRONT, GL_DIFFUSE);
 //    glLightfv (GL_LIGHT0, GL_POSITION, MyTest_lightPosition);
 //    glEnable(GL_LIGHT0);
-//    
+//
 //    MyTest_setSize(MEDIUM);
 //    MyTest_setDisplay(SMOOTHSHADED);
 //    MyTest_setOther(ENVMAP);
@@ -500,7 +500,7 @@ void CWinCont::SetupPgAndLnData(double** VertCoordArr, int* NvArr, int** VertInd
 
 			long TotNumPointsInPolygons = 0;
 			int *tPgLen = m_PgLen, *tInLen = LenArr[0];
-            for(long j=0; j<m_PgN; j++) 
+            for(long j=0; j<m_PgN; j++)
             {
 				TotNumPointsInPolygons += *tInLen;
                 *(tPgLen++) = *(tInLen++);
@@ -547,12 +547,12 @@ void CWinCont::SetupPgAndLnData(double** VertCoordArr, int* NvArr, int** VertInd
 
 			long TotNumPointsInLines = 0;
 			int *tLnLen = m_LnLen, *tInLen = LenArr[1];
-            for(long j=0; j<m_LnN; j++) 
+            for(long j=0; j<m_LnN; j++)
             {
 				TotNumPointsInLines += *tInLen;
                 *(tLnLen++) = *(tInLen++);
             }
-			
+
 			m_LnVertInd = new int[TotNumPointsInLines];
 
 			int *tLnVertInd = m_LnVertInd, *tInVertInd = VertIndArr[1];
@@ -686,6 +686,8 @@ char CSimpleGraph::sm_GraphFileName[1024];
 void CSimpleGraph::Init()
 {
     *sm_GraphFileName = '\0';
+    int argc = 0;
+    glutInit(&argc, NULL); // must be called before any other GLUT function
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     //glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH);
 	//make basic initialisations here
@@ -697,7 +699,7 @@ void CSimpleGraph::WrapForMT_glutMainLoop(void* InData)
 {//wrap for Multi-Threading entry (on Win32)
 
     StartNewWin(sm_hFirstWinCont); //move args to input
-    
+
 	//glutIdleFunc(ProcIdle);
 
 	int CallInterv_ms = 400; //to tune
@@ -721,7 +723,7 @@ void CSimpleGraph::StartNewWinApp(CHWinCont& hWinCont, char StartMode)
 			while(sm_StartingInProcess)
 			{
 #ifdef WIN32
-				Sleep(100); 
+				Sleep(100);
 #else
 		//to program MT for Linux and MacOS X
 #endif
@@ -1020,7 +1022,7 @@ bool CSimpleGraph::GetCurHWinCont(CHWinCont& hCurCont)
 
 //-------------------------------------------------------------------------
 
-void CSimpleGraph::SaveWinContentToGraphFile(int WinID) 
+void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 {
 	int DefaultFileToScreenResolRatio = 2;
 	if(WinID == 0) return;
@@ -1046,7 +1048,7 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 	GetFileName(sFileName);
 	if(sFileName[0] == '\0') return;
 
-	strcpy(sm_GraphFileName, sFileName); //since sm_GraphFileName != '\0' FinishSavingWinContentToGraphFile will be called 
+	strcpy(sm_GraphFileName, sFileName); //since sm_GraphFileName != '\0' FinishSavingWinContentToGraphFile will be called
 
 /**
 //The code below worked last time with OSMesa off-screen rendering to improve resolution
@@ -1069,8 +1071,8 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 //	//HDC Old_hDC = wglGetCurrentDC();
 //	//HGLRC Old_hGLRC = wglGetCurrentContext();
 //
-//		HDC Old_hDC = CreateDC("DISPLAY", NULL, NULL, NULL); 
-//		//HDC hdcCompatible = CreateCompatibleDC(Old_hDC); 
+//		HDC Old_hDC = CreateDC("DISPLAY", NULL, NULL, NULL);
+//		//HDC hdcCompatible = CreateCompatibleDC(Old_hDC);
 //
 //	int SaveInd = SaveDC(Old_hDC);
 //
@@ -1096,10 +1098,10 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 //		pfdAuxInf.nVersion = 1;
 //		pfdAuxInf.dwFlags = PFD_DRAW_TO_BITMAP | PFD_SUPPORT_OPENGL | PFD_SUPPORT_GDI; // replaces PFD_DRAW_TO_WINDOW
 //		//pfdAuxInf.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_SUPPORT_GDI | PFD_DOUBLEBUFFER; // replaces PFD_DRAW_TO_WINDOW
-//		pfdAuxInf.iPixelType = PFD_TYPE_RGBA; 
+//		pfdAuxInf.iPixelType = PFD_TYPE_RGBA;
 //		pfdAuxInf.cColorBits = 24; //32; //24; //32; //8;
 //		pfdAuxInf.cDepthBits = 32; //8; //16;
-//		pfdAuxInf.iLayerType = PFD_MAIN_PLANE; 
+//		pfdAuxInf.iLayerType = PFD_MAIN_PLANE;
 //	}
 //
 ////	int Old_iPixFormat = GetPixelFormat(Old_hDC);
@@ -1109,13 +1111,13 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 ////	//res = DescribePixelFormat(hdcCompatible, iPixFormat, sizeof(PIXELFORMATDESCRIPTOR), &pfdAuxInf);
 //
 //	BITMAPINFO bmi;
-//	int SizeBITMAPINFOHEADER = 40; //sizeof(BITMAPINFOHEADER); 
+//	int SizeBITMAPINFOHEADER = 40; //sizeof(BITMAPINFOHEADER);
 //	long SizeImage = SaveWidth*SaveHeight*4;
 //	memset(&bmi, 0, sizeof(BITMAPINFO));
 //    bmi.bmiHeader.biSize = SizeBITMAPINFOHEADER;
 //    bmi.bmiHeader.biWidth = SaveWidth;
 //    bmi.bmiHeader.biHeight = SaveHeight;
-//	bmi.bmiHeader.biBitCount = 24; //32; 
+//	bmi.bmiHeader.biBitCount = 24; //32;
 //	bmi.bmiHeader.biPlanes = 1;
 //	bmi.bmiHeader.biCompression = BI_RGB;
 //	bmi.bmiHeader.biSizeImage = SizeImage;
@@ -1131,35 +1133,35 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 // //   pfd.nVersion = 1;
 // //   //pfd.dwFlags = PFD_DRAW_TO_BITMAP | PFD_SUPPORT_OPENGL | PFD_SUPPORT_GDI; // replaces PFD_DRAW_TO_WINDOW
 //	//pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_SUPPORT_GDI | PFD_DOUBLEBUFFER; // replaces PFD_DRAW_TO_WINDOW
-// //   pfd.iPixelType = PFD_TYPE_RGBA; 
+// //   pfd.iPixelType = PFD_TYPE_RGBA;
 // //   pfd.cColorBits = 24; //32; //24; //32; //8;
 // //   pfd.cDepthBits = 32; //8; //16;
-// //   pfd.iLayerType = PFD_MAIN_PLANE; 
+// //   pfd.iLayerType = PFD_MAIN_PLANE;
 //
-////PIXELFORMATDESCRIPTOR pfd = { 
-////    sizeof(PIXELFORMATDESCRIPTOR),  //  size of this pfd 
-////    1,                     // version number 
-////    PFD_DRAW_TO_WINDOW |   // support window 
-////    PFD_SUPPORT_OPENGL |   // support OpenGL 
-////    PFD_DOUBLEBUFFER,      // double buffered 
-////    PFD_TYPE_RGBA,         // RGBA type 
-////    24,                    // 24-bit color depth 
-////    0, 0, 0, 0, 0, 0,      // color bits ignored 
-////    0,                     // no alpha buffer 
-////    0,                     // shift bit ignored 
-////    0,                     // no accumulation buffer 
-////    0, 0, 0, 0,            // accum bits ignored 
-////    32,                    // 32-bit z-buffer     
-////    0,                     // no stencil buffer 
-////    0,                     // no auxiliary buffer 
-////    PFD_MAIN_PLANE,        // main layer 
-////    0,                     // reserved 
-////    0, 0, 0                // layer masks ignored 
+////PIXELFORMATDESCRIPTOR pfd = {
+////    sizeof(PIXELFORMATDESCRIPTOR),  //  size of this pfd
+////    1,                     // version number
+////    PFD_DRAW_TO_WINDOW |   // support window
+////    PFD_SUPPORT_OPENGL |   // support OpenGL
+////    PFD_DOUBLEBUFFER,      // double buffered
+////    PFD_TYPE_RGBA,         // RGBA type
+////    24,                    // 24-bit color depth
+////    0, 0, 0, 0, 0, 0,      // color bits ignored
+////    0,                     // no alpha buffer
+////    0,                     // shift bit ignored
+////    0,                     // no accumulation buffer
+////    0, 0, 0, 0,            // accum bits ignored
+////    32,                    // 32-bit z-buffer
+////    0,                     // no stencil buffer
+////    0,                     // no auxiliary buffer
+////    PFD_MAIN_PLANE,        // main layer
+////    0,                     // reserved
+////    0, 0, 0                // layer masks ignored
 ////};
 //
 ////    HDC  hdc;
-////    int  iPixelFormat; 
-//// 
+////    int  iPixelFormat;
+////
 ////iPixelFormat = ChoosePixelFormat(hdc, &pfd);
 //
 ////    //bool res0 = SetPixelFormat(hDC, Old_iPixFormat, &pfd);
@@ -1176,12 +1178,12 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 ////	iPixFormat = GetPixelFormat(hDC);
 ////	res = DescribePixelFormat(hDC, iPixFormat, sizeof(PIXELFORMATDESCRIPTOR), &pfdAuxInf);
 ////
-////    //hbrush = GetCurrentObject(hDC, OBJ_BITMAP); 
-//// 
-////    // Retrieve a LOGBRUSH structure that contains the 
-////    // current brush attributes. 
-//// 
-////    //GetObject(hbrush, sizeof(LOGBRUSH), &lb); 
+////    //hbrush = GetCurrentObject(hDC, OBJ_BITMAP);
+////
+////    // Retrieve a LOGBRUSH structure that contains the
+////    // current brush attributes.
+////
+////    //GetObject(hbrush, sizeof(LOGBRUSH), &lb);
 ////
 ////	int hdcPixFormat = GetPixelFormat(hDC);
 ////	if(hdcPixFormat != 0)
@@ -1197,7 +1199,7 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 //    int nPixelFormat = ChoosePixelFormat(hMemDC, &pfdAuxInf);
 //	//int nPixelFormat = M_wglChoosePixelFormat(hMemDC, &pfdAuxInf);
 //
-//    if(nPixelFormat == 0) 
+//    if(nPixelFormat == 0)
 //	{
 //		int ErrNo = GetLastError();
 //		return; //throw error here
@@ -1218,7 +1220,7 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 //
 //	if(hGLRC == 0)
 //	{
-//			int ErrNo = GetLastError();	
+//			int ErrNo = GetLastError();
 //			return; //throw error here
 //	}
 //
@@ -1250,7 +1252,7 @@ void CSimpleGraph::SaveWinContentToGraphFile(int WinID)
 	//glPixelStorei(GL_PACK_SKIP_ROWS, 0);
 	//glPixelStorei(GL_PACK_SKIP_PIXELS, 0);
     //glReadPixels(0, 0, SaveWidth, SaveHeight, GL_RGBA, GL_UNSIGNED_BYTE, pData);
-	
+
 	//AuxMakeWhite(pData, SaveWidth);
 
     SaveImageToGraphFile(pData, SaveWidth, SaveHeight, SwapRB, sFileName);
@@ -1306,7 +1308,7 @@ void CSimpleGraph::FinishSavingWinContentToGraphFile(CHWinCont& hCurCont)
     if(!pData) throw "Memory Allocation Failure";
 
     glReadPixels(0, 0, SaveWidth, SaveHeight, GL_RGBA, GL_UNSIGNED_BYTE, pData);
-	if((hCurCont.rep->m_xSizeOrig > 0) && (hCurCont.rep->m_ySizeOrig > 0)) 
+	if((hCurCont.rep->m_xSizeOrig > 0) && (hCurCont.rep->m_ySizeOrig > 0))
 		glutReshapeWindow(hCurCont.rep->m_xSizeOrig, hCurCont.rep->m_ySizeOrig);
 
     AuxMakeWhite(pData, SaveWidth); //first line - to correct for glut problem
@@ -1342,7 +1344,7 @@ bool CSimpleGraph::SaveImageToBMP(GLRGBQUAD *pData, int Width, int Height, const
 	BITMAPFILEHEADER_HACK fHeader;
 	BITMAPINFOHEADER_HACK iHeader;
 	FILE *bmpFile;
-    
+
     long length = Width*Height*4;
 
     if(!pData) return false;
@@ -1353,13 +1355,13 @@ bool CSimpleGraph::SaveImageToBMP(GLRGBQUAD *pData, int Width, int Height, const
 
     fHeader.bfType = BM;
 	fHeader.bfSize = SizeBITMAPFILEHEADER + SizeBITMAPINFOHEADER + length;
-    fHeader.bfReserved1 = 0; 
-    fHeader.bfReserved2 = 0; 
+    fHeader.bfReserved1 = 0;
+    fHeader.bfReserved2 = 0;
 
     // This sets the distance from the start of the file to the start
     // of the bitmaps color data
     fHeader.bfOffBits = SizeBITMAPFILEHEADER + SizeBITMAPINFOHEADER;
-	
+
 	//long bytesWritten = fwrite(&fHeader, 1, SizeBITMAPFILEHEADER, bmpFile);
 	//if(bytesWritten != SizeBITMAPFILEHEADER) { fclose(bmpFile); return false;}
 	//long bytesWritten = fwrite(&fHeader, SizeBITMAPFILEHEADER, 1, bmpFile);
@@ -1470,11 +1472,11 @@ bool CSimpleGraph::SaveImageToPNG(GLRGBQUAD *pData, int Width, int Height, const
 		return false;
 	}
 
-	//for(i = 0; i < Height; i++) 
+	//for(i = 0; i < Height; i++)
 	//{
 	//	rowPtrs[i] = (unsigned char *)pData + (i * Width * 4);
 	//}
-	for(i = 0; i < Height; i++) 
+	for(i = 0; i < Height; i++)
 	{
 		rowPtrs[i] = (unsigned char *)LocArrRGB + (i * Width * 3);
 	}
@@ -1538,11 +1540,11 @@ bool CSimpleGraph::SaveImageToPNG(CRGBTri *pData, int Width, int Height, const c
 		return false;
 	}
 
-	//for(i = 0; i < Height; i++) 
+	//for(i = 0; i < Height; i++)
 	//{
 	//	rowPtrs[i] = (unsigned char *)pData + (i * Width * 4);
 	//}
-	for(i = 0; i < Height; i++) 
+	for(i = 0; i < Height; i++)
 	{
 		rowPtrs[i] = (unsigned char *)pData + (i * Width * 3);
 	}
@@ -1573,7 +1575,7 @@ void CSimpleGraph::RotateBitmapVertically(GLRGBQUAD *pData, int Width, int Heigh
 		GLRGBQUAD *pCurRowCompl = pData + (Height - k - 1)*Width;
 		GLRGBQUAD *tCurRow = pCurRow, *tCurRowCompl = pCurRowCompl;
 
-		for(int j=0; j<Width; j++) 
+		for(int j=0; j<Width; j++)
 		{
 			GLRGBQUAD AuxPix = *tCurRow;
 			*tCurRow = *tCurRowCompl;
@@ -1592,7 +1594,7 @@ void CSimpleGraph::CorrectAlphaInBitmapRGBA(GLRGBQUAD *pData, int Width, int Hei
 	GLRGBQUAD *tPix = pData;
 	for(int k=0; k<Height; k++)
 	{
-		for(int j=0; j<Width; j++) 
+		for(int j=0; j<Width; j++)
 		{
 			if((tPix->alpha != 0) && (tPix->alpha != 255))
 			{
@@ -1614,7 +1616,7 @@ void CSimpleGraph::CopyRGBA2RBG(GLRGBQUAD *pRGBA, CRGBTri *pRGB, int Width, int 
     CRGBTri *tRGB = pRGB;
 	for(int k=0; k<Height; k++)
 	{
-		for(int j=0; j<Width; j++) 
+		for(int j=0; j<Width; j++)
 		{
 			tRGB->red = tRGBA->red;
 			tRGB->green = tRGBA->green;
@@ -1631,10 +1633,10 @@ void CSimpleGraph::BGRA2RGBA(GLRGBQUAD *pData, int Width, int Height)
 	if((pData == 0) || (Width == 0) || (Height == 0)) return;
 
 	GLRGBQUAD *tData = pData;
-    unsigned char buf = 0;	
+    unsigned char buf = 0;
 	for(int k=0; k<Height; k++)
 	{
-		for(int j=0; j<Width; j++) 
+		for(int j=0; j<Width; j++)
 		{
 			buf = tData->red;
 			tData->red = tData->blue;
@@ -1650,7 +1652,7 @@ void CSimpleGraph::AuxMakeWhite(GLRGBQUAD *pData, long Size)
 {
 	if((pData == 0) || (Size == 0)) return;
 	GLRGBQUAD *tData = pData;
-	for(long j=0; j<Size; j++) 
+	for(long j=0; j<Size; j++)
 	{
 		tData->red = 255;
 		tData->green = 255;
@@ -1685,8 +1687,8 @@ bool CSimpleGraph::SaveImageToJPG(GLRGBQUAD *pData, int Width, int Height, const
 	jpgProps.JPGChannels = 3;
 	jpgProps.JPGColor =	IJL_YCBCR;
 	jpgProps.JPGSubsampling	= IJL_411;
-    jpgProps.jquality =	jpgQuality;	   
-  
+    jpgProps.jquality =	jpgQuality;
+
 	jErr = ijlWrite(&jpgProps, IJL_JFILE_WRITEWHOLEIMAGE);
 
   if (jErr != IJL_OK)
@@ -1710,20 +1712,20 @@ void CSimpleGraph::GetFileName(char* sFileName)
 	szFile[0] = '\0', szFileTitle[0] = '\0';
 
 	OPENFILENAME ofn;
-    ofn.lStructSize = sizeof(OPENFILENAME); 
-    ofn.hwndOwner = NULL; //GetActiveWindow(); //NULL; //hWnd; 
+    ofn.lStructSize = sizeof(OPENFILENAME);
+    ofn.hwndOwner = NULL; //GetActiveWindow(); //NULL; //hWnd;
     ofn.lpstrCustomFilter = NULL;
     ofn.nFilterIndex = 0;
-    ofn.lpstrFile = szFile; 
-    ofn.nMaxFile = sizeof(szFile)/sizeof(*szFile); 
-    ofn.lpstrFileTitle = szFileTitle; 
-    ofn.lpstrInitialDir = (LPSTR)NULL; 
-    ofn.lpstrTitle = NULL; //"Enter File Name"; //szTitle; 
-    ofn.Flags = OFN_EXPLORER | OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST; //OFN_SHOWHELP | OFN_OVERWRITEPROMPT | OFN_EXPLORER; 
+    ofn.lpstrFile = szFile;
+    ofn.nMaxFile = sizeof(szFile)/sizeof(*szFile);
+    ofn.lpstrFileTitle = szFileTitle;
+    ofn.lpstrInitialDir = (LPSTR)NULL;
+    ofn.lpstrTitle = NULL; //"Enter File Name"; //szTitle;
+    ofn.Flags = OFN_EXPLORER | OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST; //OFN_SHOWHELP | OFN_OVERWRITEPROMPT | OFN_EXPLORER;
     ofn.lpstrDefExt = "png";
     ofn.lpstrFilter = "PNG Files (*.png)\0*.png\0BMP Files (*.bmp)\0*.bmp\0\0";
     //ofn.lpstrFilter = "PNG Files (*.png)\0*.png\0BMP Files (*.bmp)\0*.bmp\0All Files (*.*)\0*.*\0";
-    ofn.nMaxFileTitle = sizeof(szFileTitle); 
+    ofn.nMaxFileTitle = sizeof(szFileTitle);
 
 	if(!GetSaveFileName(&ofn)) return;
 	strcpy(sFileName, szFile);

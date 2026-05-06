@@ -1,4 +1,4 @@
-name: Linux and macOS source build
+name: Pixi build (Windows + GLUT)
 
 on:
   pull_request:
@@ -9,37 +9,27 @@ on:
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-        python-version: ["3.10", "3.11", "3.12"]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up pixi
+        uses: prefix-dev/setup-pixi@v0.8.1
         with:
-          python-version: ${{ matrix.python-version }}
+          pixi-version: latest
+          cache: true
 
-      - name: Upgrade Python packaging tools
-        run: pip install --upgrade pip setuptools wheel
-
-      - name: Build and install Radia extension (source build)
-        env:
-          RADIA_BUILD_FROM_SOURCE: "1"
-        run: pip install --no-build-isolation -e cpp/py
+      - name: Build and install radia (with GLUT)
+        run: pixi run pip install --no-build-isolation -e cpp/py
 
       - name: Smoke-test Radia import
-        run: python -c "import radia; print(radia.UtiVer())"
+        run: pixi run python -c "import radia; print(radia.UtiVer())"
 
-      - name: Run field calculation test
+      - name: Run field calculation test (headless - skip ObjDrwOpenGL)
         run: |
-          python -c "
+          pixi run python -c "
           import radia as rad
           m = rad.ObjRecMag([0,0,0], [1,1,1], [-0.5,1,0.7])
           B = rad.Fld(m, 'b', [0.52,0.6,0.7])
@@ -49,41 +39,38 @@ jobs:
           print('Field calculation OK:', B)
           "
 
-      - name: Install matplotlib for example scripts
-        run: pip install matplotlib
-
       - name: Run RADIA_Example01
         working-directory: env/radia_python
         env:
           MPLBACKEND: Agg
-        run: python RADIA_Example01.py
+        run: pixi run python RADIA_Example01.py
 
       - name: Run RADIA_Example02
         working-directory: env/radia_python
         env:
           MPLBACKEND: Agg
-        run: python RADIA_Example02.py
+        run: pixi run python RADIA_Example02.py
 
       - name: Run RADIA_Example03
         working-directory: env/radia_python
         env:
           MPLBACKEND: Agg
-        run: python RADIA_Example03.py
+        run: pixi run python RADIA_Example03.py
 
       - name: Run RADIA_Example04
         working-directory: env/radia_python
         env:
           MPLBACKEND: Agg
-        run: python RADIA_Example04.py
+        run: pixi run python RADIA_Example04.py
 
       - name: Run RADIA_Example05
         working-directory: env/radia_python
         env:
           MPLBACKEND: Agg
-        run: python RADIA_Example05.py
+        run: pixi run python RADIA_Example05.py
 
       - name: Run RADIA_Example06
         working-directory: env/radia_python
         env:
           MPLBACKEND: Agg
-        run: python RADIA_Example06.py
+        run: pixi run python RADIA_Example06.py

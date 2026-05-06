@@ -10,11 +10,13 @@ from pathlib import Path
 from setuptools import Extension, setup
 import os
 import platform
+import sys
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
 CPP_DIR = ROOT_DIR / "cpp"
 SRC_DIR = CPP_DIR / "src"
 EXT_LIB_DIR = ROOT_DIR / "ext_lib"
+GLUT_VIEWER_DIR = SRC_DIR / "ext" / "glut_viewer"
 
 CORE_SOURCES = [
     "radapl1.cpp",
@@ -85,8 +87,21 @@ def common_macros():
     ]
 
 
-def source_files():
-    return [
+GLUT_VIEWER_SOURCES = [
+    "glutview.cpp",
+    "viewer3d.cpp",
+    "simplegraph.cpp",
+    "plot2d.cpp",
+    "viewerr.cpp",
+]
+
+GLUT_VIEWER_EXTRA_SOURCES = [
+    SRC_DIR / "ext" / "genmath" / "gmmeth.cpp",
+]
+
+
+def source_files(with_glut: bool = False):
+    sources = [
         SRC_DIR / "clients" / "python" / "radpy.cpp",
         SRC_DIR / "lib" / "radentry.cpp",
         SRC_DIR / "ext" / "auxparse" / "auxparse.cpp",
@@ -95,6 +110,10 @@ def source_files():
         SRC_DIR / "ext" / "triangle" / "triangle.c",
         *[SRC_DIR / "core" / name for name in CORE_SOURCES],
     ]
+    if with_glut:
+        sources.extend([GLUT_VIEWER_DIR / name for name in GLUT_VIEWER_SOURCES])
+        sources.extend(GLUT_VIEWER_EXTRA_SOURCES)
+    return sources
 
 
 def windows_fftw_library():
@@ -123,6 +142,17 @@ def build_from_source_extension():
             ("_CRT_SECURE_NO_DEPRECATE", None),
         ])
         extra_compile_args.extend(["/EHsc"])
+        # OpenGL / GLUT 3D viewer support
+        conda_prefix = Path(sys.prefix)
+        glut_inc = conda_prefix / "Library" / "include"
+        glut_lib = conda_prefix / "Library" / "lib"
+        if (glut_inc / "GL" / "glut.h").exists():
+            define_macros.append(("_WITH_GLUT", None))
+            define_macros.append(("Z_BEST_COMPRESSION", "9"))  # from zlib.h, not always available
+            include_dirs.append(str(GLUT_VIEWER_DIR))
+            include_dirs.append(str(glut_inc))
+            library_dirs.append(str(glut_lib))
+            libraries.extend(["glut", "opengl32", "glu32", "libpng16", "comdlg32"])
     else:
         define_macros.extend([("__GCC__", None), ("LINUX", None)])
         fftw_archive = EXT_LIB_DIR / (
@@ -137,13 +167,14 @@ def build_from_source_extension():
         libraries.extend(["m"])
         extra_compile_args.extend(["-O3"])
 
+    with_glut = ("_WITH_GLUT", None) in define_macros
     return Extension(
         "radia",
         define_macros=define_macros,
         include_dirs=include_dirs,
         libraries=libraries,
         library_dirs=library_dirs,
-        sources=[str(path) for path in source_files()],
+        sources=[str(path) for path in source_files(with_glut=with_glut)],
         language="c++",
         extra_compile_args=extra_compile_args,
         extra_objects=extra_objects,

@@ -1,0 +1,7 @@
+# This workflow is superseded by linux-and-macos-source-build (windows-python-build.yml).
+# Kept as manual-only to avoid duplicate CI runs.
+name: Linux Python build (manual only)
+
+on:
+  workflow_dispatch:
+
