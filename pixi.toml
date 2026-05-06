@@ -1,0 +1,16 @@
+[project]
+name = "radia-dev"
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[dependencies]
+python = ">=3.10"
+pip = "*"
+setuptools = "*"
+wheel = "*"
+
+[pypi-dependencies]
+radia = { path = "cpp/py", editable = true }
+
+[tasks]
+test = "python -c \"import radia; print(radia.UtiVer())\""
