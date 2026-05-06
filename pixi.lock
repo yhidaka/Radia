@@ -1236,7 +1236,7 @@ packages:
 - pypi: ./cpp/py
   name: radia
   version: '1.0'
-  sha256: 845b4ae7d203012b2d3dfa4b7c41ef6d05c4ef2198356ebf8ca16e47109c3957
+  sha256: f4573ec46a679229d408881ef40aa251221b3073098c39e26928817c644a7841
   editable: true
 - conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-82.0.1-pyh332efcf_0.conda
   sha256: 82088a6e4daa33329a30bc26dc19a98c7c1d3f05c0f73ce9845d4eab4924e9e1
